@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "../services/productService";
 import ProductCard from "../components/ProductCard";
 
-function Home() {
+const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,6 @@ function Home() {
       <Link to="/cart">Go to Cart</Link>
     </>
   );
-}
+};
 
 export default Home;

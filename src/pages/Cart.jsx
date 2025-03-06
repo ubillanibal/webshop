@@ -1,7 +1,7 @@
 import { useCart } from "../contexts/CartContext";
 
-function Cart() {
-  const { cart } = useCart();
+const Cart = () => {
+  const { cart, removeFromCart } = useCart();
 
   return (
     <div>
@@ -14,12 +14,13 @@ function Cart() {
             <li key={index}>
               <h3>{item.title}</h3>
               <p>${item.price}</p>
+              <button onClick={() => removeFromCart(index)}>Remove</button>
             </li>
           ))}
         </ul>
       )}
     </div>
   );
-}
+};
 
 export default Cart;

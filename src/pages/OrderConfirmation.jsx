@@ -1,12 +1,11 @@
-import { Link } from "react-router-dom";
-
-function OrderConfirmation() {
+//TODO: Turn this into a popup modal that appears after the user has successfully placed an order
+const OrderConfirmation = () => {
   return (
     <div>
-      <h1>Welcome to the Shop</h1>
-      <Link to="/cart">Go to Cart</Link>
+      <h1>Thank you for your purchase!</h1>
+      <p>Your order has been placed successfully.</p>
     </div>
   );
-}
+};
 
 export default OrderConfirmation;

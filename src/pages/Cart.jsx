@@ -21,7 +21,6 @@ const Cart = () => {
             <li key={index}>
               <h3>{item.title}</h3>
               <p>${item.price}</p>
-              {/* TODO: Implement a way to limit the lowest number to either be 1 or remove it when it reaches 0 */}
               <button onClick={() => updateQuantity(item.id, -1)}>-</button>
               <span>{item.quantity}</span>
               <button onClick={() => updateQuantity(item.id, 1)}>+</button>

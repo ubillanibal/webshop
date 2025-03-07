@@ -17,7 +17,6 @@ const Home = () => {
       {products.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
-      <Link to="/cart">Go to Cart</Link>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import { fetchProductById } from "../services/productService";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -8,9 +9,7 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then(setProduct);
+    fetchProductById(id).then(setProduct);
   }, [id]);
 
   if (!product) return <p>Loading...</p>;

@@ -7,7 +7,7 @@ import OrderConfirmation from "./pages/OrderConfirmation";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./styles/App.css";
+import "./App.css";
 
 function App() {
   return (

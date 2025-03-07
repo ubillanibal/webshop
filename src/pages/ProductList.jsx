@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
+import { fetchProducts } from "../services/productService";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -9,12 +10,10 @@ function ProductList() {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setCategories([...new Set(data.map((p) => p.category))]);
-      });
+    fetchProducts().then((data) => {
+      setProducts(data);
+      setCategories([...new Set(data.map((p) => p.category))]);
+    });
   }, []);
 
   const filteredProducts = selectedCategory

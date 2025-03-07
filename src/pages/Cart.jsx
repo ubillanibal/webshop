@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
+import "./Cart.css";
 
 const Cart = () => {
   const { cart, removeFromCart, updateQuantity, checkout } = useCart();
@@ -11,23 +12,28 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <h1>Your Cart</h1>
+    <div className="cart">
+      <h2>Your Cart</h2>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
+        <div className="cart-items">
           {cart.map((item, index) => (
-            <li key={index}>
-              <h3>{item.title}</h3>
-              <p>${item.price}</p>
-              <button onClick={() => updateQuantity(item.id, -1)}>-</button>
-              <span>{item.quantity}</span>
-              <button onClick={() => updateQuantity(item.id, 1)}>+</button>
-              <button onClick={() => removeFromCart(index)}>Remove</button>
-            </li>
+            <div key={index} className="cart-item">
+              <img src={item.image} alt={item.title} />
+              <div className="cart-item-info">
+                <span>{item.title}</span>
+                <p>${item.price}</p>
+                <div className="cart-item-details">
+                  <button onClick={() => updateQuantity(item.id, -1)}>-</button>
+                  <h3>{item.quantity}</h3>
+                  <button onClick={() => updateQuantity(item.id, 1)}>+</button>
+                  <button onClick={() => removeFromCart(index)}>Remove</button>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
       {cart.length > 0 && <button onClick={handleCheckout}>Checkout</button>}
     </div>

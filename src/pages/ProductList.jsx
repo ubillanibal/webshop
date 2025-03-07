@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCart } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
 import { fetchProducts } from "../services/productService";
+import "./ProductList.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ function ProductList() {
     : products;
 
   return (
-    <div>
+    <div className="product-list">
       <h1>Products</h1>
       <select onChange={(e) => setSelectedCategory(e.target.value)}>
         <option value="">All Categories</option>
@@ -35,9 +36,11 @@ function ProductList() {
         {filteredProducts.map((product) => (
           <li key={product.id}>
             <Link to={`/product/${product.id}`}>
-              <h3>{product.title}</h3>
+              <img src={product.image} alt={product.title} />
             </Link>
-            <p>${product.price}</p>
+            <hr />
+            <h3>${product.price}</h3>
+            <p>{product.title}</p>
             <button onClick={() => addToCart(product)}>Add to Cart</button>
           </li>
         ))}

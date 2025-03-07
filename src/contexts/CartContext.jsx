@@ -46,7 +46,7 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem("cart");
   };
 
-  //TODO: Using context goes a bit over my head, while I solved it, I made use HEAVELY of cGPT, so I need to work on this some more
+  //TODO: use context more ofte so i can learn how it works, properlly.
   return (
     <CartContext.Provider
       value={{ cart, addToCart, removeFromCart, updateQuantity, checkout }}

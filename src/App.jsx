@@ -4,24 +4,24 @@ import Cart from "./pages/Cart";
 import ProductDetail from "./pages/ProductDetail";
 import ProductList from "./pages/ProductList";
 import OrderConfirmation from "./pages/OrderConfirmation";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import "./App.css";
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/order-confirmation" element={<OrderConfirmation />} />
-      </Routes>
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order-confirmation" element={<OrderConfirmation />} />
+        </Routes>
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
 
